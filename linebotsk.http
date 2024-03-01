@@ -1,0 +1,6 @@
+@linebotsk_HostAddress = http://localhost:5151
+
+GET {{linebotsk_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
