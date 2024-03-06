@@ -21,10 +21,10 @@ namespace isRock.Template
         [HttpPost]
         public IActionResult POST()
         {
-            const string AdminUserId = "👉Admin_User_Id";  
+            const string AdminUserId = "👉Admin_User_ID";  
             const string ChannelAccessToken = "👉Channel_Access_Token"; 
-            const string OpenAIModelName = "👉Model_Name";
-            const string OpenAIApiKey = "👉Api_Key";
+            const string OpenAIModelName = "gpt-4-0125-preview";
+            const string OpenAIApiKey = "👉OpenAIApiKey";
              
             try
             {
@@ -47,11 +47,12 @@ namespace isRock.Template
                 // Create chat history 物件，並且加入
                 var history = getHistoryFromStaticRepo(LineEvent.source.userId);
                 if (history == null || history.Count() <= 0)
-                    history = new ChatHistory(@"你是企業的請假助理，可以協助員工進行請假，或是查詢請假天數等功能。若員工需要請假，
-                 你需要蒐集請假起始日期、天數、請假事由、代理人、請假者姓名等資訊。最後呼叫 LeaveRequest Method。
+                    history = new ChatHistory(@"你是企業的請假助理，可以協助員工進行請假，或是查詢請假天數等功能。
+                 若員工需要請假，你需要蒐集請假起始日期、天數、請假事由、代理人、請假者姓名等資訊。最後呼叫 LeaveRequest Method。
                  若員工需要查詢請假天數，你需要蒐集請假者姓名，最後呼叫 GetLeaveRecordAmount Method。
                  --------------
-                 * 請用中文回答
+                 * 所有對談請用正體中文回答
+                 * 請以口語化的方式來回答，要適合對談機器人的角色
                 ");
 
 

@@ -6,7 +6,7 @@ namespace isRock.Template
 
     public class LeaveRequestPlugin
     {
-        const string AdminUserId = "👉Admin_User_Id";
+        const string AdminUserId = "👉Admin_User_ID";
         const string ChannelAccessToken = "👉Channel_Access_Token";
 
         [KernelFunction]
@@ -21,7 +21,7 @@ namespace isRock.Template
         public int GetLeaveRecordAmount([Description("要查詢請假天數的員工名稱")] string employeeName)
         {
             isRock.LineBot.Bot bot = new LineBot.Bot(ChannelAccessToken);
-            bot.PushMessage(AdminUserId, $"[查詢 {employeeName} 假單]");
+            bot.PushMessage(AdminUserId, $"[action : 查詢 {employeeName} 假單]");
 
             if (employeeName.ToLower() == "david")
                 return 3;
@@ -35,7 +35,7 @@ namespace isRock.Template
         [Description("請假者姓名")] string 請假者姓名)
         {
             isRock.LineBot.Bot bot = new LineBot.Bot(ChannelAccessToken);
-            bot.PushMessage(AdminUserId, $"[建立假單:  {請假者姓名} 請假 {天數}天 從 {請假起始日期} 開始，事由為 {請假事由}，代理人 {代理人}]");
+            bot.PushMessage(AdminUserId, $"action [建立假單:  {請假者姓名} 請假 {天數}天 從 {請假起始日期} 開始，事由為 {請假事由}，代理人 {代理人}]");
 
             return true;
         }
